@@ -64,7 +64,7 @@ Canon production printers experience recurring failures and downtime related to 
 
 ---
 
-## 🛠️ Tech Stack | 使用技術
+## Tech Stack | 使用技術
 
 | 類別 | 工具 |
 |---|---|
