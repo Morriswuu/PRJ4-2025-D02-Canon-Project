@@ -106,7 +106,7 @@ pip install pandas numpy matplotlib seaborn scikit-learn scipy pyarrow
 
 ## Author | 作者
 
-**Morris Wu**
+**Morris Wu, Kevin**
 Fontys University of Applied Sciences — ICT & Data Science
 Project: PRJ4-2025-D02 | Group Project
 
