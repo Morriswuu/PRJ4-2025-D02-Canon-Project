@@ -70,7 +70,7 @@ Canon production printers experience recurring failures and downtime related to 
 | 視覺化 | matplotlib, seaborn |
 | 機器學習 | scikit-learn (RandomForestClassifier, KMeans) |
 | 統計分析 | scipy (Pearson, Spearman correlation) |
-| 資料格式 | CSV, Parquet |
+| 資料格式 | CSV |
 | 開發環境 | Jupyter Notebook, VS Code |
 
 ---
