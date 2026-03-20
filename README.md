@@ -89,7 +89,7 @@ pip install pandas numpy matplotlib seaborn scikit-learn scipy pyarrow
 #           error_data_clean.csv
 
 # 4. Open notebooks in order
-# EDA_copy.ipynb → printer_analyze.ipynb → Model prep_copy.ipynb → InkSight_copy.ipynb
+# EDA_copy.ipynb → Model prep_copy.ipynb → InkSight_copy.ipynb
 ```
 ---
 
