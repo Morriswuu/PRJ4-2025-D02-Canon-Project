@@ -32,10 +32,7 @@ Canon production printers experience recurring failures and downtime related to 
 |---|---|
 | `README.md` | 專案描述 / Description |
 | `EDA_copy.ipynb` | 初步探索性資料分析，包含各印表機的過濾流量時間序列圖與錯誤時間點標記 / Initial EDA with filter flow time-series and error marker visualizations per printer |
-| `printer_analyze.ipynb` | 深度 EDA：過濾流量與錯誤頻率的相關性、異常偵測、時間間隔分析 / Deep EDA: flow-error correlation, anomaly detection (z-score), recovery patterns, inter-error interval analysis |
 | `Model prep_copy.ipynb` | 模型前置處理：標記 `is_error`、特徵工程、時間窗口對齊 / Model preprocessing: error labeling (±7hr window), feature engineering, time alignment |
-| `data_interval_visual.ipynb` | 各印表機資料收集週期視覺化，含各顏色墨水的收集間隔統計 / Visualizes data collection intervals per printer and ink color |
-| `data_interval_visual_printer.ipynb` | 跨印表機比較儀表板：密度熱圖、錯誤頻率、流量趨勢、K-Means 分群 / Cross-printer comparison dashboard: density heatmap, error frequency, flow trends, K-Means clustering |
 | `InkSight_copy.ipynb` | 主要預測模型（Random Forest），訓練並評估錯誤預測機率，支援新資料輸入 / Main prediction model using Random Forest; trains on historical data and predicts error probability for new input |
 
 ---
