@@ -85,8 +85,8 @@ git clone https://github.com/Morriswuu/PRJ4-2025-D02-Canon-Project.git
 pip install pandas numpy matplotlib seaborn scikit-learn scipy pyarrow
 
 # 3. Place data files in the project root directory
-# Required: filterflow_data.csv / filterflow_data.parquet
-#           error_data_clean.csv / error_data.parquet
+# Required: filterflow_data.csv
+#           error_data_clean.csv
 
 # 4. Open notebooks in order
 # EDA_copy.ipynb → printer_analyze.ipynb → Model prep_copy.ipynb → InkSight_copy.ipynb
