@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canon 專題分析 | 墨水過濾器健康與預測</title>
+    
+    <!-- Modern Corporate Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons for aesthetic iconography -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Custom Stylings -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="logo">
+                <i class="ph-fill ph-printer"></i>
+                Canon 專題分析
+            </h1>
+            <div class="nav-links">
+                <a href="#overview" class="nav-link">概覽</a>
+                <a href="#eda" class="nav-link">EDA分析</a>
+                <a href="#machine-learning" class="nav-link">機器學習模型</a>
+                <a href="#findings" class="nav-link">關鍵發現</a>
+            </div>
+            <a href="https://github.com/Morriswuu/PRJ4-2025-D02-Canon-Project" target="_blank" class="github-btn">
+                <i class="ph ph-github-logo"></i>
+                專案原始碼
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="content-wrapper hero-content fade-in-up">
+            <div class="chip">PRJ4-2025-D02 企業合作專案</div>
+            <h2 class="hero-title">透過數據驅動，將 <span class="highlight">設備維護化被動為主動</span></h2>
+            <p class="hero-subtitle">
+                Canon 生產型印表機偶爾因墨水過濾器（Ink Filter）的狀態而停機。本專案透過歷史過濾流量資料，引入探索性分析與機器學習模型，協助維護團隊找出錯誤模式並進行事前預防，大幅提升設備稼動率。
+            </p>
+            <div class="hero-actions">
+                <a href="#machine-learning" class="primary-btn">
+                    了解預測模型 <i class="ph-bold ph-arrow-right"></i>
+                </a>
+                <a href="#overview" class="secondary-btn">探索專案核心</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview Core Cards -->
+    <section id="overview" class="content-wrapper">
+        <div class="section-title fade-in-up">
+            專案核心目標
+        </div>
+        <p class="section-subtitle fade-in-up">透過系統化的資料分析管道，我們的最終目標是在不須派遣工程師到場勘查的情況下，提供高度可靠的維護排程建議。</p>
+        
+        <div class="overview-grid fade-in-up">
+            <!-- Card 1 -->
+            <div class="card">
+                <div class="card-icon"><i class="ph-fill ph-magnifying-glass-chart"></i></div>
+                <h3 class="card-title">找出影響因素 (EDA)</h3>
+                <p>分析 30 台印表機的過濾器流量時間序列，藉由統計檢定找出高維護頻率設備與影響壽命的變因。</p>
+                <a href="#eda" class="card-link">探索 EDA 細節 <i class="ph-bold ph-arrow-right"></i></a>
+            </div>
+            <!-- Card 2 -->
+            <div class="card">
+                <div class="card-icon"><i class="ph-fill ph-brain"></i></div>
+                <h3 class="card-title">建立預測機制 (ML)</h3>
+                <p>使用 Random Forest (隨機森林) 分類器，評估流量、星期、時段特徵，以預估未來發生的錯誤機率。</p>
+                <a href="#machine-learning" class="card-link">檢視模型表現 <i class="ph-bold ph-arrow-right"></i></a>
+            </div>
+            <!-- Card 3 -->
+            <div class="card">
+                <div class="card-icon"><i class="ph-fill ph-calendar-check"></i></div>
+                <h3 class="card-title">優化服務排程</h3>
+                <p>透過多維度（跨設備、跨時段與耗材型號）的錯誤發生頻率找出最佳維護保養窗口，節省派遣成本。</p>
+                <a href="#findings" class="card-link">查看關鍵發現 <i class="ph-bold ph-arrow-right"></i></a>
+            </div>
+        </div>
+        <div class="section-divider"></div>
+    </section>
+
+    <!-- Detailed Section 1: EDA -->
+    <section id="eda" class="content-wrapper">
+        <div class="detail-section fade-in-up">
+            <div class="detail-content">
+                <div class="section-title">
+                    <i class="ph-fill ph-chart-line-up"></i>
+                    探索性資料分析 (EDA)
+                </div>
+                <h4 class="mb-2">流量時間序列與錯誤標記</h4>
+                <p class="text-muted mb-2">
+                    在第一階段，我們針對 Printer 1–30 的過濾流量收集了大量時間序列資料。藉由將『錯誤事件(Error Logs)』對應疊加上去，我們發現了流量驟變與設備故障的高度相關性。
+                </p>
+                <p class="text-muted">
+                    此外，我們採用了 **Pearson** 與 **Spearman** 相關係數，嚴格評估了墨水流量的波動順序與錯誤發生率之間的純統計學關聯，確認這確實是一個可靠的預測指標。
+                </p>
+            </div>
+            <div class="detail-visual">
+                <div class="visual-title"><span>資料擷取與時間序列分析</span> <i class="ph-bold ph-database"></i></div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h5>收集 Filter Flow 資料</h5>
+                        <p>持續追蹤過濾器內部流速與壓力。</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5>標記錯誤紀錄 (Error Event)</h5>
+                        <p>將印表機停機紀錄套用於當下時間軸 (is_error = 1)。</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5>相關性檢定</h5>
+                        <p>確認流量變異與停機時間具備實質的因果/時序上的關聯。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Section 2: Machine Learning -->
+    <section id="machine-learning" class="content-wrapper">
+        <div class="detail-section reverse fade-in-up">
+            <div class="detail-content">
+                <div class="section-title">
+                    <i class="ph-fill ph-tree-structure"></i>
+                    隨機森林預測模型
+                </div>
+                <h4 class="mb-2">100 棵決策樹的精準預測</h4>
+                <p class="text-muted mb-2">
+                    為實現自動化預測，我們建立了包含 100 棵決策樹的「隨機森林分類器 (Random Forest Classifier)」。在標註邏輯上，我們嚴格將「錯誤發生前後 ±7 小時」內的流量記錄定義為潛在異常 (`is_error = 1`)。
+                </p>
+                <div class="mt-4">
+                    <h5 class="text-dark">模型採用特徵值 (Features Used)：</h5>
+                    <div class="feature-tags">
+                        <span class="feature-tag top-feature">filter_flow (當前流量)</span>
+                        <span class="feature-tag">weekday (星期幾)</span>
+                        <span class="feature-tag">hour (小時區段)</span>
+                        <span class="feature-tag">avg_flow (平均流速)</span>
+                        <span class="feature-tag">max/min_flow (極值)</span>
+                        <span class="feature-tag">day_night (日夜班別)</span>
+                    </div>
+                </div>
+            </div>
+            <div class="detail-visual">
+                <div class="visual-title"><span>特徵權重概念示意圖</span> <i class="ph-bold ph-lightning"></i></div>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Data Feature</th>
+                            <th>Description</th>
+                            <th>Impact</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>filter_flow</strong></td>
+                            <td>瞬間過濾流量值</td>
+                            <td><span class="badge badge-danger">High Prio</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>avg_flow</strong></td>
+                            <td>隨時間移動平均值</td>
+                            <td><span class="badge badge-danger">High Prio</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>weekday / hour</strong></td>
+                            <td>時序特定熱區</td>
+                            <td><span class="badge badge-success">Medium</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Section 3: Findings -->
+    <section id="findings" class="content-wrapper">
+        <div class="detail-section fade-in-up">
+            <div class="detail-content">
+                <div class="section-title">
+                    <i class="ph-fill ph-lightbulb"></i>
+                    影響深遠的關鍵發現
+                </div>
+                <h4 class="mb-2 text-red">Z-Score 飆升即為警訊</h4>
+                <p class="text-muted mb-2">
+                    我們建立了一個基於 Z-score 的預警機制，可在設備故障發生的前 24 小時精準備出潛在的高風險設備，藉以安排前置維護作業。
+                </p>
+                <h4 class="mt-4 mb-2">跨印表機的差異化分析 (K-Means)</h4>
+                <p class="text-muted">
+                    透過 K-Means 分群演算法，我們進一步繪製熱圖比較。數據顯示即便在相同環境內，特定顏色墨水（Cyan, Magenta, Yellow, Black, Custom Gray）與特定機器組合間具有明顯不同的錯誤風險分佈，這項資訊極為有利於現場保養的備料準備。
+                </p>
+            </div>
+            <div class="detail-visual" style="background-color: white;">
+                <div class="visual-title"><span>風險預警儀表板概念</span> <i class="ph-bold ph-shield-warning"></i></div>
+                <div style="border: 1px solid var(--border-color); border-radius: 8px; padding: 16px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 12px; margin-bottom: 12px;">
+                        <span style="font-weight: 600; font-size: 0.9rem;">Printer Unit #12</span>
+                        <span style="color: var(--canon-red); font-size: 0.8rem; font-weight: 700; background: rgba(210,0,0,0.1); padding: 4px 8px; border-radius: 4px;">Z-Score: 2.14 (警報)</span>
+                    </div>
+                    <div>
+                        <div style="font-size: 0.8rem; color: #666; margin-bottom: 4px;">Cyan (C) Ink Line</div>
+                        <div style="width: 100%; background: #eee; height: 6px; border-radius: 3px;">
+                            <div style="width: 90%; background: var(--canon-red); height: 100%; border-radius: 3px;"></div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 12px;">
+                        <div style="font-size: 0.8rem; color: #666; margin-bottom: 4px;">Magenta (M) Ink Line</div>
+                        <div style="width: 100%; background: #eee; height: 6px; border-radius: 3px;">
+                            <div style="width: 40%; background: #28a745; height: 100%; border-radius: 3px;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="content-wrapper">
+            <h4 style="color: white; margin-bottom: 8px;">Canon 企業協作分析專案</h4>
+            <p class="footer-text">
+                本專案為學術與展示用途。專案與分析由 <strong>Morris Wu</strong> & <strong>Kevin</strong> (@Fontys University of Applied Sciences) 執行。
+            </p>
+            <p class="footer-text" style="font-size: 0.8rem; margin-top: 16px; opacity: 0.5;">
+                Data and results are confidential. © 2026 PRJ4-2025-D02.
+            </p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
