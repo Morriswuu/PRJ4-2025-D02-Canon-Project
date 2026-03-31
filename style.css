@@ -437,7 +437,7 @@ footer {
     transform: translateY(0);
 }
 
-/* Responsive */
+/* Responsive Design & Mobile Adaptability */
 @media (max-width: 900px) {
     .detail-section {
         grid-template-columns: 1fr;
@@ -451,4 +451,69 @@ footer {
     .detail-section.reverse .detail-visual { grid-row: 2; }
     
     .nav-links { display: none; }
+    
+    .hero-title {
+        font-size: clamp(2rem, 8vw, 2.5rem);
+    }
+    
+    .hero {
+        padding-top: 100px;
+    }
+}
+
+@media (max-width: 600px) {
+    .content-wrapper {
+        padding: 0 16px;
+    }
+    
+    section {
+        padding: 40px 0;
+    }
+    
+    .section-title {
+        font-size: 1.75rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .primary-btn, .secondary-btn {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 12px;
+    }
+    .hero-actions {
+        flex-direction: column;
+        width: 100%;
+        gap: 0;
+    }
+    
+    .detail-visual {
+        padding: 20px;
+    }
+    
+    /* Responsive Data Table Container */
+    .table-responsive-wrapper {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .data-table {
+        min-width: 400px; /* Forces scroll on very small screens instead of squishing */
+    }
+    
+    .nav-container {
+        padding: 0 16px;
+    }
+    
+    .logo {
+        font-size: 1.2rem;
+    }
+    
+    .github-btn {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
 }
